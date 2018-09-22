@@ -7,14 +7,13 @@ namespace POMABlockchain.Api.Service.Test
         private readonly BlockService _blockService;
         public BlockTest()
         {
-            
             _blockService = new BlockService(ClientFactory.GetClient(new TestSettings()));
         }
 
         [Fact]
         public void ShouldReturnBlockCount()
         {
-            var block =_blockService.GetBlockFromBlockchain(1);
+            var block =_blockService.GetBlockFromBlockchain(39999);
             Assert.True(block != null);
         }
 

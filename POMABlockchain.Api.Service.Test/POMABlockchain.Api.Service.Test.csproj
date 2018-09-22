@@ -19,4 +19,10 @@
     <ProjectReference Include="..\POMABlockchain.Model\POMABlockchain.Api.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="test-settings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
