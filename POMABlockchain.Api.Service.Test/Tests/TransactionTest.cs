@@ -13,7 +13,7 @@ namespace POMABlockchain.Api.Service.Test
         [Fact]
         public void ShouldReturnBlockCount()
         {
-            var transaction = _transactionService.GetTransactionFromBlockchain("0xc5bc3cfe0d7aa08b9a86f5a351bf5540f0e2eceb6a30b4667382f6c41529fd3f");
+            var transaction = _transactionService.GetTransactionFromBlockchain("0x6a2c1e629599f2ab61a7b195aeb026bb0ff98ebc09f72c6d53618c48712433b1");
             Assert.True(transaction != null);
         }
     }
