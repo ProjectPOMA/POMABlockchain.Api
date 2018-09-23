@@ -1,4 +1,9 @@
 {
+
+  "ConnectionString": {
+    "POMAApiConnection": "mongodb://127.0.0.1:57017"
+  },
+
   "mainNetSettings": {
     "rpcUrl": "http://node01.test.projectpoma.com:10332",
     "defaultAccount": "ASJiT56jYKZgTN9FtGvjRenbdBKTZ98QVw",

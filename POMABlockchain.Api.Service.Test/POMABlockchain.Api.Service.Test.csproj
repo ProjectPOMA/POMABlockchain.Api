@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\POMABlockchain.Api.Repository\POMABlockchain.Api.Repository.csproj" />
     <ProjectReference Include="..\POMABlockchain.Api.Service\POMABlockchain.Api.Service.csproj" />
     <ProjectReference Include="..\POMABlockchain.Model\POMABlockchain.Api.Model.csproj" />
   </ItemGroup>
