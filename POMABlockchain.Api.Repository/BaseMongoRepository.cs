@@ -14,6 +14,7 @@ namespace POMABlockchain.Api.Repository
         {
             _configuration = configuration ?? throw new ArgumentNullException("DBConfiguration is null!");
 
+
                 client = new MongoClient(
             _configuration.GetSection("ConnectionString").GetSection("POMAApiConnection").Value);
                       

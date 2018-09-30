@@ -6,7 +6,7 @@ namespace POMABlockchain.Api.Repository
 {
     public class BlockRepository : BaseMongoRepository, IBlockRepository
     {
-        private IMongoDatabase _db;
+        private readonly IMongoDatabase _db;
         public BlockRepository(IConfiguration configuration) : base(configuration)
         {
             _db = client.GetDatabase("Block");
@@ -14,6 +14,13 @@ namespace POMABlockchain.Api.Repository
         public Block GetByHash(string hash)
         {
             var filter = Builders<Block>.Filter.Eq("Hash", hash);
+
+            return _db.GetCollection<Block>("Blocks")
+                .Find(filter).FirstOrDefault();
+        }
+        public Block GetByIndex(int blockIndex)
+        {
+            var filter = Builders<Block>.Filter.Eq("Index", blockIndex);
 
             return _db.GetCollection<Block>("Blocks")
                 .Find(filter).FirstOrDefault();

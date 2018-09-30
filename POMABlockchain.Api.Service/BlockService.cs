@@ -31,5 +31,9 @@ namespace POMABlockchain.Api.Service
         {
             _blockRepository.Insert(block);
         }
+        public Block GetByIndex(int blockIndex)
+        {
+            return _blockRepository.GetByIndex(blockIndex);
+        }
     }
 }

@@ -21,65 +21,12 @@ namespace POMABlockchain.Api.Service.Test
 
         public IConfigurationRoot Configuration { get; set; }
 
-        public string GetDefaultAccount()
-        {
-            return GetAppSettingsValue("defaultAccount");
-        }
-
-        public string GetBlockHash()
-        {
-            return GetAppSettingsValue("blockhash");
-        }
-
-        public ulong GetBlockNumber()
-        {
-            return Convert.ToUInt64(GetAppSettingsValue("blockNumber"));
-        }
-
-        public string GetContractHash()
-        {
-            return GetAppSettingsValue("contractHash");
-        }
-
-        public string GetContractTransaction()
-        {
-            return GetAppSettingsValue("contractTransaction");
-        }
-
-        public string GetMinerTransaction()
-        {
-            return GetAppSettingsValue("minerTransaction");
-        }
-
-        public string GetClaimTransaction()
-        {
-            return GetAppSettingsValue("claimTransaction");
-        }
-
-        public string GetGoverningAssetHash()
-        {
-            return GetAppSettingsValue("governingAssetHash");
-        }
-
-        public string GetUtilityAssetHash()
-        {
-            return GetAppSettingsValue("utilityAssetHash");
-        }
-
-        public string GetTokenAssetHash()
-        {
-            return GetAppSettingsValue("tokenAssetHash");
-        }
-
+        
         private string GetAppSettingsValue(string key)
         {
             return GetSectionSettingsValue(key, CurrentSettings);
         }
-
-        public string GetAddress()
-        {
-            return GetAppSettingsValue("address");
-        }
+                
 
         private string GetSectionSettingsValue(string key, string sectionSettingsKey)
         {

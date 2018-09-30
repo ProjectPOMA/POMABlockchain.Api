@@ -1,23 +1,19 @@
 ﻿version: '3'
-
 services:
-  pomablockchainapiwebapi-service:
-    image: pomablockchainapiwebapi
+  pomablockchainapiweb-service:
+    image: pomablockchainapiweb
     build:
       context: .
-      dockerfile: POMABlockchain.Api.WebApi/Dockerfile
-    networks:
-      - pomablockchainwebapi-network
+      dockerfile: POMABlockchain.Web/Dockerfile
     depends_on:
-      - "basepomablockchainwebapi"
-
-  basepomablockchainwebapi:
+      - mongo
+    environment:
+      Mongo: "mongodb://127.0.0.1:57017/?connectTimeoutMS=2000"    
+    
+  mongo:
+    container_name: "mongopoma"
     image: mongo
     ports:
       - "57017:27017"
-    networks:
-      - pomablockchainwebapi-network
+  
 
-networks: 
-    pomablockchainwebapi-network:
-      driver: bridge

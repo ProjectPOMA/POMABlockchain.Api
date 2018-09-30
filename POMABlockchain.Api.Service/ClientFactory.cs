@@ -2,7 +2,7 @@ using System;
 using Microsoft.Extensions.Configuration;
 using POMABlockchain.Modules.JsonRpc.Client;
 
-namespace POMABlockchain.Api.Service.Test
+namespace POMABlockchain.Api.Service
 {
     public static class ClientFactory
     {

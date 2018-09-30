@@ -9,5 +9,6 @@ namespace POMABlockchain.Api.Model
         Block GetByHash(string hash);
         void Insert(Block entity);
         void Delete(string hash);
+        Block GetByIndex(int blockIndex);
     }
 }

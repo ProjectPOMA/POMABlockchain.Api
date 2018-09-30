@@ -2,14 +2,9 @@
 
 namespace POMABlockchain.Api.Service.Test
 {
-    public class TransactionTest
+    public class TransactionTest : BaseTest
     {
-        private readonly TransactionService _transactionService;
-        public TransactionTest()
-        {
-            _transactionService = new TransactionService(ClientFactory.GetClient(new TestSettings()));
-        }
-
+    
         [Fact]
         public void ShouldReturnBlockCount()
         {

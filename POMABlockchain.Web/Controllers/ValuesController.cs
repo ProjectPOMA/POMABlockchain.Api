@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace POMABlockchain.Api.Controllers
+namespace POMABlockchain.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
