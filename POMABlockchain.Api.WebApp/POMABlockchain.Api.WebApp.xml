@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>POMABlockchain.Api.WebApi</name>
+        <name>POMABlockchain.Api.WebApp</name>
     </assembly>
     <members>
     </members>

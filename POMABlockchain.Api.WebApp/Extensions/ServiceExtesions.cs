@@ -12,7 +12,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace POMABlockchain.Api.Web.Extensions
+namespace POMABlockchain.Api.WebApp.Extensions
 {
     public static class ServiceExtesions 
     {

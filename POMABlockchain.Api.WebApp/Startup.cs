@@ -4,22 +4,24 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using POMABlockchain.Api.Repository;
-using POMABlockchain.Api.WebApi.Extensions;
+using POMABlockchain.Api.WebApp.Extensions;
 
-namespace POMABlockchain.Api
+namespace POMABlockchain.Api.WebApp
 {
     public class Startup
     {
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            // var str = $"WebAPI MongoDb: Server {MongoDbConfiguration.ServerAddress}:{MongoDbConfiguration.ServerPort}/{MongoDbConfiguration.DatabaseName}";
+
         }
 
         public IConfiguration Configuration { get; }
@@ -31,22 +33,15 @@ namespace POMABlockchain.Api
             services.ConfigureRepositories();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddMongoMapping();
-            services.ConfigureSwagger();
-          
+            //services.ConfigureSwagger();
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-
-            app.UseSwagger();
-
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "POMA Blockchain API");
-            });
-
 
             if (env.IsDevelopment())
             {
@@ -54,11 +49,18 @@ namespace POMABlockchain.Api
             }
             else
             {
-                app.UseHsts();
+                app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseStaticFiles();
+            
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
+
         }
     }
 }

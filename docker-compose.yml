@@ -4,15 +4,16 @@ services:
     image: pomablockchainapiweb
     build:
       context: .
-      dockerfile: POMABlockchain.Web/Dockerfile
+      dockerfile: POMABlockchain.Api.WebApp/Dockerfile
     depends_on:
-      - mongo
-   
-  mongo:
-    container_name: "mongopoma"
-    image: mongo
+      - mongodb
     ports:
-      - "57017:27017"
+      - "8022:80"
+             
+  mongodb:
+    image: mvertes/alpine-mongo
+    ports:
+      - "27017:27017"
    
   
 
